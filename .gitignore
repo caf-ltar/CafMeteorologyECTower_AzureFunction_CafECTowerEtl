@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 local.settings.json
+host.json
 
 # User-specific files
 *.suo
