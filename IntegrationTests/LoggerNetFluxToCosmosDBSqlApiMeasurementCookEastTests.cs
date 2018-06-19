@@ -24,6 +24,8 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
     {
         private string fileWithRealData = 
             @"Assets/CookEastEcTower_Flux_Raw_2018_01_08_1330.dat";
+        private string fileWithTestDataV2 =
+            @"Assets/TOA5_11205.Flux_0_2018_06_15_1400.dat";
         private DocumentClient client;
 
         public LoggerNetFluxToCosmosDBSqlApiMeasurementCookEastTests()
@@ -40,22 +42,12 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                     config["Values:AzureCosmosDBKey"]);
 
             // Setup, deletes all Measurements
-            //var measurements = getAllMeasurements();
             deleteAllDocuments(getAllMeasurements().ToList<IAmDocument>());
             deleteAllDocuments(getAllEtlEvents().ToList<IAmDocument>());
-            //foreach(var measurement in measurements)
-            //{
-            //    client.DeleteDocumentAsync(
-            //        UriFactory.CreateDocumentUri(
-            //            "cafdb", "items", measurement.Id),
-            //        new RequestOptions {
-            //            PartitionKey = new PartitionKey(measurement.PartitionKey)
-            //        }).Wait();
-            //}
         }
 
         [Fact]
-        public async void Run_RealData_CreatesExpectedNumberOfDocs()
+        public async void Run_RealDataV1_CreatesExpectedNumberOfDocs()
         {
             var ex = new ExecutionContext();
             ex.FunctionAppDirectory = Environment.CurrentDirectory;
@@ -65,6 +57,32 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                 await LoggerNetFluxToCosmosDBSqlApiMeasurementCookEast.Run(
                     s,
                     "CookEastEcTower_Flux_Raw_2018_01_08_1330.dat",
+                    new TraceWriterStub(TraceLevel.Verbose),
+                    ex);
+            }
+
+            // Assert
+            int actualMeasurements = getAllMeasurements().Count();
+            int expectedMeasurements = 115;
+            Assert.Equal(actualMeasurements, expectedMeasurements);
+
+            int actualEtlEvents = getAllEtlEvents().Count();
+            int expectedEtlEvents = 1;
+            Assert.Equal(actualEtlEvents, expectedEtlEvents);
+        }
+
+        [Fact]
+        public async void Run_TestDataV2_CreatesExpectedNumberOfDocs()
+        {
+            var ex = new ExecutionContext();
+            ex.FunctionAppDirectory = Environment.CurrentDirectory;
+
+            // Act
+            using (FileStream s = new FileStream(fileWithTestDataV2, FileMode.Open))
+            {
+                await LoggerNetFluxToCosmosDBSqlApiMeasurementCookEast.Run(
+                    s,
+                    "TOA5_11205.Flux_0_2018_06_15_1400.dat",
                     new TraceWriterStub(TraceLevel.Verbose),
                     ex);
             }

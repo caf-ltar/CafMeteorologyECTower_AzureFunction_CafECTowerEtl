@@ -70,41 +70,45 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 
             if(!String.IsNullOrEmpty(contents))
             {
-                TOA5Extractor extractor = new TOA5Extractor(
+                try
+                {
+                    TOA5Extractor extractor = new TOA5Extractor(
                     name,
                     contents,
                     -8);
 
-                TOA5 fluxTable = extractor.GetTOA5<Flux>();
+                    TOA5 fluxTable = extractor.GetTOA5<Flux>();
 
-                // TODO: Move strings and such to settings file
-                DocumentDbMeasurementV2Transformer transformer =
-                    new DocumentDbMeasurementV2Transformer(
-                        new MapFromFluxDataTableToCafStandards(),
-                        "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                        etlEvent.Id, 
-                        "Measurement", 
-                        "CafMeteorologyEcTower", 
-                        1800);
+                    // TODO: Move strings and such to settings file
+                    DocumentDbMeasurementV2Transformer transformer =
+                        new DocumentDbMeasurementV2Transformer(
+                            new MapFromFluxDataTableToCafStandards(),
+                            "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
+                            etlEvent.Id, 
+                            "Measurement", 
+                            "CafMeteorologyEcTower", 
+                            1800);                
 
-                List<MeasurementV2> measurements = 
-                    transformer.ToMeasurements(fluxTable);
+                    List<MeasurementV2> measurements = 
+                        transformer.ToMeasurements(fluxTable);
 
-                /// Using the bulkImport sproc doesn't provide much benefit since
-                /// most data tables will only have a few measurements with the
-                /// same partition key.  But it's better than nothing.
-                try
-                {
-                    await loader.LoadBulk(measurements);
+                    /// Using the bulkImport sproc doesn't provide much benefit since
+                    /// most data tables will only have a few measurements with the
+                    /// same partition key.  But it's better than nothing.
+                        await loader.LoadBulk(measurements);
                 }
                 catch(Exception e)
                 {
-                    etlEvent.Logs.Add(e.Message);
+                    etlEvent.Logs.Add(
+                        $"Error in ETL pipeline: {e.Message}");
+                    throw new Exception("Error in ETL pipeline", e);
+                }
+                finally
+                {
+                    etlEvent.DateTimeEnd = DateTime.UtcNow;
+                    await loader.LoadNoReplace(etlEvent);
                 }
             }
-            
-            etlEvent.DateTimeEnd = DateTime.UtcNow;
-            await loader.LoadNoReplace(etlEvent);
         }
     }
 }
