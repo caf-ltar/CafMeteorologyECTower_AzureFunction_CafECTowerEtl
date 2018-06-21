@@ -27,19 +27,20 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
         private string fileWithTestDataV2 =
             @"Assets/TOA5_11205.Flux_0_2018_06_15_1400.dat";
         private DocumentClient client;
-
+        
         public LoggerNetFluxToCosmosDBSqlApiMeasurementCookEastTests()
             :base()
         {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("local.settings.json")
-                .AddEnvironmentVariables()
-                .Build();
-
+            //var config = new ConfigurationBuilder()
+            //    .AddJsonFile("local.settings.json")
+            //    .AddEnvironmentVariables()
+            //    .Build();
+            ConfigurationManager.AppSettings["AzureCosmosDBUri"] = "https://localhost:8081";
+            ConfigurationManager.AppSettings["AzureCosmosDBKey"] = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
             client = new DocumentClient(
                 new Uri(
-                    config["Values:AzureCosmosDBUri"]),
-                    config["Values:AzureCosmosDBKey"]);
+                    ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
+                    ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
 
             // Setup, deletes all Measurements
             deleteAllDocuments(getAllMeasurements().ToList<IAmDocument>());

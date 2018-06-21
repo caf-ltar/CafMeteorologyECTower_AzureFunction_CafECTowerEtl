@@ -13,7 +13,8 @@ using Caf.Etl.Models.LoggerNet.TOA5;
 using Microsoft.Azure.Documents.Client;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Load;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using System.Configuration;
+//using Microsoft.Extensions.Configuration;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 {
@@ -21,18 +22,18 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
     {
         [FunctionName("LoggerNetFluxToCosmosDBSqlApiMeasurementCookEast")]
         public static async Task Run(
-            [BlobTrigger("ectower-cookeast/raw/Flux/{name}", 
-            Connection = "CookEastFluxConnectionString")]
-            Stream myBlob, 
+            [BlobTrigger("ectower-cookeast/raw/Flux/{name}", Connection = "ltarcafdatastreamConnectionString")]Stream myBlob, 
             string name, 
             TraceWriter log,
             ExecutionContext context)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(context.FunctionAppDirectory)
-                .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables()
-                .Build();
+            log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+
+            //var config = new ConfigurationBuilder()
+            //    .SetBasePath(context.FunctionAppDirectory)
+            //    .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
+            //    .AddEnvironmentVariables()
+            //    .Build();
 
             EtlEvent etlEvent = new EtlEvent(
                 "EtlEvent",
@@ -48,6 +49,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
             StreamReader reader = new StreamReader(myBlob);
             string contents = "";
 
+            log.Info("About to read contents");
             try
             {
                 contents = reader.ReadToEnd();
@@ -58,10 +60,15 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     $"Error reading Blob: {e.Message}");
             }
 
+            //DocumentClient client = new DocumentClient(
+            //    new Uri(
+            //        config["Values:AzureCosmosDBUri"]),
+            //        config["Values:AzureCosmosDBKey"]);
+
             DocumentClient client = new DocumentClient(
                 new Uri(
-                    config["Values:AzureCosmosDBUri"]),
-                    config["Values:AzureCosmosDBKey"]);
+                    ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
+                    ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
 
             DocumentLoader loader = new DocumentLoader(
                 client,
@@ -95,7 +102,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     /// Using the bulkImport sproc doesn't provide much benefit since
                     /// most data tables will only have a few measurements with the
                     /// same partition key.  But it's better than nothing.
-                        await loader.LoadBulk(measurements);
+                    await loader.LoadBulk(measurements);
                 }
                 catch(Exception e)
                 {
