@@ -24,6 +24,8 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
     {
         private string fileWithRealData = 
             @"Assets/CookEastEcTower_Flux_Raw_2018_01_08_1330.dat";
+        private string fileWithReadDataErroredInCloud =
+            @"Assets/CookEastEcTower_Flux_Raw_2017_07_08_1500.dat";
         private string fileWithTestDataV2 =
             @"Assets/TOA5_11205.Flux_0_2018_06_15_1400.dat";
         private DocumentClient client;
@@ -65,6 +67,31 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
             // Assert
             int actualMeasurements = getAllMeasurements().Count();
             int expectedMeasurements = 115;
+            Assert.Equal(actualMeasurements, expectedMeasurements);
+
+            int actualEtlEvents = getAllEtlEvents().Count();
+            int expectedEtlEvents = 1;
+            Assert.Equal(actualEtlEvents, expectedEtlEvents);
+        }
+
+        [Fact]
+        public async void Run_RealDataErroredInCloudV1_CreatesExpectedNumberOfDocs()
+        {
+            var ex = new ExecutionContext();
+            ex.FunctionAppDirectory = Environment.CurrentDirectory;
+            
+            using (FileStream s = new FileStream(fileWithReadDataErroredInCloud, FileMode.Open))
+            {
+                await LoggerNetFluxToCosmosDBSqlApiMeasurementCookEast.Run(
+                    s,
+                    "CookEastEcTower_Flux_Raw_2017_07_08_1500.dat",
+                    new TraceWriterStub(TraceLevel.Verbose),
+                    ex);
+            }
+
+            // Assert
+            int actualMeasurements = getAllMeasurements().Count();
+            int expectedMeasurements = 85;
             Assert.Equal(actualMeasurements, expectedMeasurements);
 
             int actualEtlEvents = getAllEtlEvents().Count();
@@ -134,9 +161,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
             {
                 client.DeleteDocumentAsync(
                     UriFactory.CreateDocumentUri(
-                        "cafdb", "items", doc.Id),
+                        "cafdb", "items", doc.id),
                     new RequestOptions {
-                        PartitionKey = new PartitionKey(doc.PartitionKey)
+                        PartitionKey = new PartitionKey(doc.partitionKey)
                     }).Wait();
             }
 

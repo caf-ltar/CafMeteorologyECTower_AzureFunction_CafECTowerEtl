@@ -65,20 +65,35 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
             //        config["Values:AzureCosmosDBUri"]),
             //        config["Values:AzureCosmosDBKey"]);
 
-            DocumentClient client = new DocumentClient(
-                new Uri(
-                    ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
-                    ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
+            DocumentClient client;
 
+            try
+            {
+                client = new DocumentClient(
+                    new Uri(
+                        ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
+                        ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
+            }
+            catch(Exception e)
+            {
+                etlEvent.Logs.Add(
+                    $"Error creating DocumentClient: {e.Message}");
+                log.Error($"Error creating DocumentClient: {e.Message}");
+                throw new Exception("Error creating DocumentClient", e);
+            }
+            
+            
             DocumentLoader loader = new DocumentLoader(
                 client,
                 "cafdb",
                 "items");
 
+            log.Info("Created client and loader");
             if(!String.IsNullOrEmpty(contents))
             {
                 try
                 {
+                    log.Info("Attempting extract and transform");
                     TOA5Extractor extractor = new TOA5Extractor(
                     name,
                     contents,
@@ -91,14 +106,14 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                         new DocumentDbMeasurementV2Transformer(
                             new MapFromFluxDataTableToCafStandards(),
                             "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                            etlEvent.Id, 
+                            etlEvent.id, 
                             "Measurement", 
                             "CafMeteorologyEcTower", 
                             1800);                
 
                     List<MeasurementV2> measurements = 
                         transformer.ToMeasurements(fluxTable);
-
+                    log.Info("Attempting load");
                     /// Using the bulkImport sproc doesn't provide much benefit since
                     /// most data tables will only have a few measurements with the
                     /// same partition key.  But it's better than nothing.
@@ -108,10 +123,12 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                 {
                     etlEvent.Logs.Add(
                         $"Error in ETL pipeline: {e.Message}");
+                    log.Error($"Error in ETL pipeline: {e.Message}");
                     throw new Exception("Error in ETL pipeline", e);
                 }
                 finally
                 {
+                    log.Info("Loading etlEvent to db");
                     etlEvent.DateTimeEnd = DateTime.UtcNow;
                     await loader.LoadNoReplace(etlEvent);
                 }
