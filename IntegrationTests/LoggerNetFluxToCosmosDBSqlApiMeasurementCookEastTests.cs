@@ -9,7 +9,6 @@ using System.Linq;
 using Xunit;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Caf.Etl.Models.CosmosDBSqlApi;
@@ -161,9 +160,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
             {
                 client.DeleteDocumentAsync(
                     UriFactory.CreateDocumentUri(
-                        "cafdb", "items", doc.id),
+                        "cafdb", "items", doc.Id),
                     new RequestOptions {
-                        PartitionKey = new PartitionKey(doc.partitionKey)
+                        PartitionKey = new PartitionKey(doc.PartitionKey)
                     }).Wait();
             }
 

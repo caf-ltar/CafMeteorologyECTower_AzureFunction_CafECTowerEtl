@@ -14,6 +14,7 @@ using Microsoft.Azure.Documents.Client;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Load;
 using System.Threading.Tasks;
 using System.Configuration;
+using Microsoft.Azure.Documents;
 //using Microsoft.Extensions.Configuration;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
@@ -106,7 +107,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                         new DocumentDbMeasurementV2Transformer(
                             new MapFromFluxDataTableToCafStandards(),
                             "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
-                            etlEvent.id, 
+                            etlEvent.Id, 
                             "Measurement", 
                             "CafMeteorologyEcTower", 
                             1800);                
@@ -117,7 +118,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     /// Using the bulkImport sproc doesn't provide much benefit since
                     /// most data tables will only have a few measurements with the
                     /// same partition key.  But it's better than nothing.
-                    await loader.LoadBulk(measurements);
+                    StoredProcedureResponse<bool>[] results = await loader.LoadBulk(measurements);
+                    log.Info($"Loaded {results.Length.ToString()} measurements");
+
                 }
                 catch(Exception e)
                 {
@@ -130,8 +133,11 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                 {
                     log.Info("Loading etlEvent to db");
                     etlEvent.DateTimeEnd = DateTime.UtcNow;
-                    await loader.LoadNoReplace(etlEvent);
+                    ResourceResponse<Document> result = await loader.LoadNoReplace(etlEvent);
+                    log.Info($"Result of writing EtlEvent: {result.StatusCode.ToString()}");
                 }
+
+                log.Info("Function completed");
             }
         }
     }
