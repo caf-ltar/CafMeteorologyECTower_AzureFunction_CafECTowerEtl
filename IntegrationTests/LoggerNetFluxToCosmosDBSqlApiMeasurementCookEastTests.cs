@@ -19,7 +19,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
     /// Integration tests requires Cosmos DB Emulator configured with:
     /// database = "cafdb", collection = "items"
     /// </summary>
-    public class LoggerNetFluxToCosmosDBSqlApiMeasurementCookEastTests
+/*    public class LoggerNetFluxToCosmosDBSqlApiMeasurementCookEastTests
     {
         private string fileWithRealData = 
             @"Assets/CookEastEcTower_Flux_Raw_2018_01_08_1330.dat";
@@ -195,4 +195,4 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
 
         public List<TraceEvent> Traces => _traces;
     }
-}
+*/}

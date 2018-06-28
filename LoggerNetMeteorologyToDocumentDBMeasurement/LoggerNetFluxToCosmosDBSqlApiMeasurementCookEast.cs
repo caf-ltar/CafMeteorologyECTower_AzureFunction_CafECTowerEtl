@@ -41,7 +41,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                 "AzureFunction",
                 "http://files.cafltar.org/data/schema/documentDb/v2/etlEvent.json",
                 "CafMeteorologyEcTower",
-                "1.0", "LoggerNetFluxToCosmosDBSqlApiMeasurementCookEast",
+                "1.1", "LoggerNetFluxToCosmosDBSqlApiMeasurementCookEast",
                 DateTime.UtcNow);
             etlEvent.Outputs = null;
             etlEvent.Inputs.Add($"ectower-cookeast/raw/Flux/{name}");

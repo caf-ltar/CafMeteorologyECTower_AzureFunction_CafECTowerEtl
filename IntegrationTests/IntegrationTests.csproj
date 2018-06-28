@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Caf.Etl" Version="2.3.0" />
+    <PackageReference Include="Caf.Etl" Version="2.3.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
@@ -28,6 +28,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\CookEastEcTower_Flux_Raw_2018_01_08_1330.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\CookEastEcTower_Met_Raw_2018_06_27_1315.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\TOA5_11205.Flux_0_2018_06_15_1400.dat">
