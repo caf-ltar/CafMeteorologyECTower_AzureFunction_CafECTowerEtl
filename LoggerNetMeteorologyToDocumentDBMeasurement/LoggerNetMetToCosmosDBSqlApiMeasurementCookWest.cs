@@ -3,14 +3,14 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using System.Threading.Tasks;
-using System;
 using Microsoft.Azure.Documents.Client;
 using System.Configuration;
+using System;
 //using Microsoft.Extensions.Configuration;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 {
-    public static class LoggerNetMetToCosmosDBSqlApiMeasurementCookEast
+    public static class LoggerNetMetToCosmosDBSqlApiMeasurementCookWest
     {
         private static Lazy<DocumentClient> lazyClient = new Lazy<DocumentClient>(InitializeDocumentClient);
         private static DocumentClient documentClient => lazyClient.Value;
@@ -23,9 +23,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                         ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
         }
 
-        [FunctionName("LoggerNetMetToCosmosDBSqlApiMeasurementCookEast")]
+        [FunctionName("LoggerNetMetToCosmosDBSqlApiMeasurementCookWest")]
         public static async Task Run(
-            [BlobTrigger("ectower-cookeast/raw/Met/{name}", Connection = "ltarcafdatastreamConnectionString")]Stream myBlob, 
+            [BlobTrigger("ectower-cookwest/raw/Met/{name}", Connection = "ltarcafdatastreamConnectionString")]Stream myBlob, 
             string name, 
             TraceWriter log,
             ExecutionContext context)
@@ -37,8 +37,8 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     myBlob,
                     name,
                     log,
-                    "LoggerNetMetToCosmosDBSqlApiMeasurementCookEast",
-                    $"ectower-cookeast/raw/Met/{name}",
+                    "LoggerNetMetToCosmosDBSqlApiMeasurementCookWest",
+                    $"ectower-cookwest/raw/Met/{name}",
                     900,
                     documentClient);
 
