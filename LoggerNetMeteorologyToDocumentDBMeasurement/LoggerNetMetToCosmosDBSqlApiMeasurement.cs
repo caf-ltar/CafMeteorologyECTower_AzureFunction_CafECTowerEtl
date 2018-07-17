@@ -43,7 +43,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
             this.name = name;
             this.log = log;
             this.functionName = functionName;
-            this.version = "1.1";
+            this.version = "1.2";
             this.blobPath = blobPath;
             this.timestep = timestep;
             this.client = client;
