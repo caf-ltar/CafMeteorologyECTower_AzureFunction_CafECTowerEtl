@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <Version>1.2.0</Version>
-    <!-- <AzureFunctionsVersion>v2</AzureFunctionsVersion> -->
+    <AzureFunctionsVersion>v2</AzureFunctionsVersion>
   </PropertyGroup>
   
   <ItemGroup>
@@ -13,9 +13,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Caf.Etl" Version="2.4.0" />
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.14" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.*" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
