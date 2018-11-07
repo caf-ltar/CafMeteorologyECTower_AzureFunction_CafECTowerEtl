@@ -7,6 +7,8 @@ using System.Configuration;
 using Microsoft.Azure.Documents.Client;
 using System;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 //using Microsoft.Extensions.Configuration;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
@@ -18,10 +20,16 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 
         private static DocumentClient InitializeDocumentClient()
         {
+            JsonSerializerSettings serializerSettings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            };
+
             return new DocumentClient(
                     new Uri(
                         ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
-                        ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
+                        ConfigurationManager.AppSettings["AzureCosmosDBKey"],
+                        serializerSettings);
         }
 
         [FunctionName("LoggerNetMetToCosmosDBSqlApiMeasurementBoydNorth")]

@@ -12,6 +12,11 @@ using Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Caf.Etl.Models.CosmosDBSqlApi;
+using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging.Abstractions;
+using Moq;
 
 namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
 {
@@ -62,7 +67,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                 await LoggerNetMetToCosmosDBSqlApiMeasurementCookEast.Run(
                     s,
                     "CookEastEcTower_Met_Raw_2018_06_27_1315.dat",
-                    new TraceWriterStub(TraceLevel.Verbose),
+                    Mock.Of<ILogger>(), 
                     ex);
             }
 
@@ -88,7 +93,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                 await LoggerNetMetToCosmosDBSqlApiMeasurementCookWest.Run(
                     s,
                     "CookWestEcTower_Met_Raw_2018_06_28_1015.dat",
-                    new TraceWriterStub(TraceLevel.Verbose),
+                    Mock.Of<ILogger>(),
                     ex);
             }
 
@@ -114,7 +119,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                 await LoggerNetMetToCosmosDBSqlApiMeasurementBoydNorth.Run(
                     s,
                     "BoydNorthEcTower_Met_Raw_2018_06_28_1015.dat",
-                    new TraceWriterStub(TraceLevel.Verbose),
+                    Mock.Of<ILogger>(),
                     ex);
             }
 
@@ -140,7 +145,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                 await LoggerNetMetToCosmosDBSqlApiMeasurementBoydSouth.Run(
                     s,
                     "BoydSouthEcTower_Met_Raw_2018_06_28_1015.dat",
-                    new TraceWriterStub(TraceLevel.Verbose),
+                    Mock.Of<ILogger>(),
                     ex);
             }
 
@@ -175,10 +180,10 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
                     .Where(m => m.Type == "Measurement");
             return measurements;
         }
-        private IQueryable<MeasurementV2> getAllEtlEvents()
+        private IQueryable<EtlEvent> getAllEtlEvents()
         {
-            IQueryable<MeasurementV2> events =
-                client.CreateDocumentQuery<MeasurementV2>(
+            IQueryable<EtlEvent> events =
+                client.CreateDocumentQuery<EtlEvent>(
                     UriFactory.CreateDocumentCollectionUri("cafdb", "items"),
                     new FeedOptions { EnableCrossPartitionQuery = true })
                     .Where(m => m.Type == "EtlEvent");
@@ -200,29 +205,29 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
         }
     }
 
-    public class TraceWriterStub : TraceWriter
-    {
-        protected TraceLevel _level;
-        protected List<TraceEvent> _traces;
-        public string TraceString { get; set; }
-
-        public TraceWriterStub(TraceLevel level) : base(level)
-        {
-            _level = level;
-            _traces = new List<TraceEvent>();
-        }
-
-        public override void Trace(TraceEvent traceEvent)
-        {
-            _traces.Add(traceEvent);
-            TraceString = traceEvent.Message;
-        }
-
-        public override string ToString()
-        {
-            return TraceString;
-        }
-
-        public List<TraceEvent> Traces => _traces;
-    }
+    //public class ILoggerStub : ILogger
+    //{
+    //    protected TraceLevel _level;
+    //    protected List<ILogger> _traces;
+    //    public string TraceString { get; set; }
+    //
+    //    public TraceWriterStub(TraceLevel level) : base(level)
+    //    {
+    //        _level = level;
+    //        _traces = new List<TraceEvent>();
+    //    }
+    //
+    //    public override void Trace(TraceEvent traceEvent)
+    //    {
+    //        _traces.Add(traceEvent);
+    //        TraceString = traceEvent.Message;
+    //    }
+    //
+    //    public override string ToString()
+    //    {
+    //        return TraceString;
+    //    }
+    //
+    //    public List<TraceEvent> Traces => _traces;
+    //}
 }

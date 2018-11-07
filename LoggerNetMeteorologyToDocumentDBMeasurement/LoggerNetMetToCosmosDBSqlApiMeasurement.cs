@@ -1,21 +1,17 @@
 ﻿using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Etl.Models.LoggerNet.TOA5;
-using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Load;
 using Caf.Etl.Nodes.LoggerNet.Extract;
 using Caf.Etl.Nodes.LoggerNet.Mappers;
 using Caf.Etl.Nodes.LoggerNet.Transform;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
@@ -44,7 +40,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
             this.name = name;
             this.log = log;
             this.functionName = functionName;
-            this.version = "1.2";
+            this.version = "2.0.0";
             this.blobPath = blobPath;
             this.timestep = timestep;
             this.client = client;
