@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System;
 using Microsoft.Azure.Documents.Client;
+using Microsoft.Extensions.Logging;
 //using Microsoft.Extensions.Configuration;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
@@ -27,10 +28,10 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
         public static async Task Run(
             [BlobTrigger("ectower-boydsouth/raw/Met/{name}", Connection = "ltarcafdatastreamConnectionString")]Stream myBlob, 
             string name, 
-            TraceWriter log,
+            ILogger log,
             ExecutionContext context)
         {
-            log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 
             LoggerNetMetToCosmosDBSqlApiMeasurement<Meteorology> pipe =
                 new LoggerNetMetToCosmosDBSqlApiMeasurement<Meteorology>(
