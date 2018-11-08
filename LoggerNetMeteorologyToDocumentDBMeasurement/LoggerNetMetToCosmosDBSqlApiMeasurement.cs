@@ -1,4 +1,5 @@
-﻿using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
+﻿using Caf.Etl.Models.CosmosDBSqlApi;
+using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Etl.Models.LoggerNet.TOA5;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Load;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
@@ -54,7 +56,6 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                 "CafMeteorologyEcTower",
                 version, functionName,
                 DateTime.UtcNow);
-            etlEvent.Outputs = null;
             etlEvent.Inputs.Add(blobPath);
 
             StreamReader reader = new StreamReader(myBlob);
@@ -101,13 +102,38 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     List<MeasurementV2> measurements =
                         transformer.ToMeasurements(metTable);
                     log.LogInformation("Attempting load");
-                    /// Using the bulkImport sproc doesn't provide much benefit since
-                    /// most data tables will only have a few measurements with the
-                    /// same partition key.  But it's better than nothing.
-                    StoredProcedureResponse<bool>[] results = await loader.LoadBulk(measurements);
-                    log.LogInformation($"Loaded {results.Length.ToString()} measurements");
-                    etlEvent.Logs.Add($"Loaded {results.Length.ToString()} measurements");
 
+                    int docsLoaded = 0;
+                    int docsError = 0;
+                    foreach(MeasurementV2 measurement in measurements)
+                    {
+                        try
+                        {
+                            ResourceResponse<Document> result =
+                                await loader.LoadNoReplace(measurement);
+                            if (result.StatusCode == HttpStatusCode.Created)
+                            {
+                                etlEvent.Outputs.Add(result.Resource.Id);
+                                docsLoaded++;
+                            }
+                            else { docsError++; }
+                        }
+                        catch (Exception e)
+                        {
+                            etlEvent.Logs.Add(
+                                $"Error loading MeasurementV2: {e.Message}");
+                            log.LogError($"Error loading MeasurementV2: {e.Message}");
+                            docsError++;
+                        }
+                    }
+                    log.LogInformation(
+                        $"Loaded {docsLoaded.ToString()} MeasurementV2s.");
+                    log.LogInformation(
+                        $"Error loading {docsError.ToString()} MeasurementV2s.");
+                    etlEvent.Logs.Add(
+                        $"Loaded {docsLoaded.ToString()} MeasurementV2s");
+                    etlEvent.Logs.Add(
+                        $"Error loading {docsError.ToString()} MeasurementV2s");
                 }
                 catch (Exception e)
                 {
