@@ -8,28 +8,16 @@ using Microsoft.Azure.Documents.Client;
 using System.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 //using Microsoft.Extensions.Configuration;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 {
     public static class LoggerNetMetToCosmosDBSqlApiMeasurementCookEast
     {
-        private static Lazy<DocumentClient> lazyClient = new Lazy<DocumentClient>(InitializeDocumentClient);
+        private static Lazy<DocumentClient> lazyClient = 
+            new Lazy<DocumentClient>(DocumentClientInitializer.InitializeDocumentClient());
         private static DocumentClient documentClient => lazyClient.Value;
-
-        private static DocumentClient InitializeDocumentClient()
-        {
-            JsonSerializerSettings serializerSettings = new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            };
-
-            return new DocumentClient(
-                    new Uri(
-                        ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
-                        ConfigurationManager.AppSettings["AzureCosmosDBKey"],
-                        serializerSettings);
-        }
 
         [FunctionName("LoggerNetMetToCosmosDBSqlApiMeasurementCookEast")]
         public static async Task Run(

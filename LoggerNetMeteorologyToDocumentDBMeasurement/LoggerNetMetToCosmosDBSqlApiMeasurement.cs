@@ -10,7 +10,6 @@ using Microsoft.Azure.Documents.Client;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -48,12 +47,6 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 
         public async Task PipeItAsync()
         {
-            //var config = new ConfigurationBuilder()
-            //    .SetBasePath(context.FunctionAppDirectory)
-            //    .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-            //    .AddEnvironmentVariables()
-            //    .Build();
-
             EtlEvent etlEvent = new EtlEvent(
                 "EtlEvent",
                 "AzureFunction",
@@ -78,35 +71,12 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     $"Error reading Blob: {e.Message}");
             }
 
-            //DocumentClient client = new DocumentClient(
-            //    new Uri(
-            //        config["Values:AzureCosmosDBUri"]),
-            //        config["Values:AzureCosmosDBKey"]);
-
-            DocumentClient client;
-
-            try
-            {
-                client = new DocumentClient(
-                    new Uri(
-                        ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
-                        ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
-            }
-            catch (Exception e)
-            {
-                etlEvent.Logs.Add(
-                    $"Error creating DocumentClient: {e.Message}");
-                log.LogError($"Error creating DocumentClient: {e.Message}");
-                throw new Exception("Error creating DocumentClient", e);
-            }
-
-
             DocumentLoader loader = new DocumentLoader(
                 client,
                 "cafdb",
                 "items");
 
-            log.LogInformation("Created client and loader");
+            log.LogInformation("Created loader");
             if (!String.IsNullOrEmpty(contents))
             {
                 try

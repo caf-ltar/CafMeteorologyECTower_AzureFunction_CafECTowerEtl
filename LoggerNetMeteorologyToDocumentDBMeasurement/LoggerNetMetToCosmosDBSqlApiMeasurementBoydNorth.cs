@@ -15,22 +15,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 {
     public static class LoggerNetMetToCosmosDBSqlApiMeasurementBoydNorth
     {
-        private static Lazy<DocumentClient> lazyClient = new Lazy<DocumentClient>(InitializeDocumentClient);
+        private static Lazy<DocumentClient> lazyClient = 
+            new Lazy<DocumentClient>(DocumentClientInitializer.InitializeDocumentClient());
         private static DocumentClient documentClient => lazyClient.Value;
-
-        private static DocumentClient InitializeDocumentClient()
-        {
-            JsonSerializerSettings serializerSettings = new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            };
-
-            return new DocumentClient(
-                    new Uri(
-                        ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
-                        ConfigurationManager.AppSettings["AzureCosmosDBKey"],
-                        serializerSettings);
-        }
 
         [FunctionName("LoggerNetMetToCosmosDBSqlApiMeasurementBoydNorth")]
         public static async Task Run(

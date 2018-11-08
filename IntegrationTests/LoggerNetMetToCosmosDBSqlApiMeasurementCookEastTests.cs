@@ -1,9 +1,6 @@
 using Microsoft.Azure.Documents.Client;
-using Microsoft.Azure.WebJobs.Host;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Xunit;
@@ -14,8 +11,6 @@ using Microsoft.Azure.WebJobs;
 using Caf.Etl.Models.CosmosDBSqlApi;
 using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 
 namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
@@ -39,16 +34,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
         public LoggerNetMetToCosmosDBSqlApiMeasurementTests()
             :base()
         {
-            //var config = new ConfigurationBuilder()
-            //    .AddJsonFile("local.settings.json")
-            //    .AddEnvironmentVariables()
-            //    .Build();
-            ConfigurationManager.AppSettings["AzureCosmosDBUri"] = "https://localhost:8081";
-            ConfigurationManager.AppSettings["AzureCosmosDBKey"] = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
-            client = new DocumentClient(
-                new Uri(
-                    ConfigurationManager.AppSettings["AzureCosmosDBUri"]),
-                    ConfigurationManager.AppSettings["AzureCosmosDBKey"]);
+            client = DocumentClientInitializer.InitializeDocumentClient();
 
             // Setup, deletes all Measurements
             deleteAllDocuments(getAllMeasurements().ToList<IAmDocument>());
@@ -204,30 +190,4 @@ namespace Caf.Projects.CafMeteorologyEcTower.IntegrationTests
             return true;
         }
     }
-
-    //public class ILoggerStub : ILogger
-    //{
-    //    protected TraceLevel _level;
-    //    protected List<ILogger> _traces;
-    //    public string TraceString { get; set; }
-    //
-    //    public TraceWriterStub(TraceLevel level) : base(level)
-    //    {
-    //        _level = level;
-    //        _traces = new List<TraceEvent>();
-    //    }
-    //
-    //    public override void Trace(TraceEvent traceEvent)
-    //    {
-    //        _traces.Add(traceEvent);
-    //        TraceString = traceEvent.Message;
-    //    }
-    //
-    //    public override string ToString()
-    //    {
-    //        return TraceString;
-    //    }
-    //
-    //    public List<TraceEvent> Traces => _traces;
-    //}
 }
