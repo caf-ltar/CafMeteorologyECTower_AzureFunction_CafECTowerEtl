@@ -41,7 +41,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
             this.name = name;
             this.log = log;
             this.functionName = functionName;
-            this.version = "2.0.1";
+            this.version = "2.0.2";
             this.blobPath = blobPath;
             this.timestep = timestep;
             this.client = client;
@@ -111,7 +111,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                         {
                             ResourceResponse<Document> result =
                                 await loader.LoadNoReplace(measurement);
-                            if (result.StatusCode == HttpStatusCode.Created)
+                            if (
+                                result.StatusCode == HttpStatusCode.Created ||
+                                result.StatusCode == HttpStatusCode.OK)
                             {
                                 etlEvent.Outputs.Add(result.Resource.Id);
                                 docsLoaded++;
@@ -119,7 +121,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                             else
                             {
                                 etlEvent.Logs.Add(
-                                    $"Error loading MeasurementV2: {measurement.Id.ToString()}; StatusCode: {result.StatusCode}");
+                                    $"StatusCode: {result.StatusCode} on MeasurementV2: {measurement.Id.ToString()}");
                                 docsError++;
                             }
                         }
