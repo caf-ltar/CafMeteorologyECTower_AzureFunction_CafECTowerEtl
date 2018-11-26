@@ -121,7 +121,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                         catch (Exception e)
                         {
                             etlEvent.Logs.Add(
-                                $"Error loading MeasurementV2: {e.Message}");
+                                $"Error loading {measurement.Id.ToString()} MeasurementV2: {e.Message}");
                             log.LogError($"Error loading MeasurementV2: {e.Message}");
                             docsError++;
                         }
