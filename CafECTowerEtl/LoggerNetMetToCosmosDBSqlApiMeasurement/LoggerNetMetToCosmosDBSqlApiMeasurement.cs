@@ -2,6 +2,7 @@
 using Caf.Etl.Models.CosmosDBSqlApi.EtlEvent;
 using Caf.Etl.Models.CosmosDBSqlApi.Measurement;
 using Caf.Etl.Models.LoggerNet.TOA5;
+using Caf.Etl.Models.LoggerNet.TOA5.DataTables;
 using Caf.Etl.Nodes.CosmosDBSqlApi.Load;
 using Caf.Etl.Nodes.LoggerNet.Extract;
 using Caf.Etl.Nodes.LoggerNet.Mappers;
@@ -17,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
 {
-    public class LoggerNetMetToCosmosDBSqlApiMeasurement<T> where T : IObservation
+    public class LoggerNetMetToCosmosDBSqlApiMeasurement
     {
         private readonly Stream myBlob;
         private readonly string name;
@@ -27,6 +28,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
         private readonly string blobPath;
         private readonly int timestep;
         private readonly DocumentClient client;
+        private readonly IObservation observation;
 
         public LoggerNetMetToCosmosDBSqlApiMeasurement(
             Stream myBlob,
@@ -35,16 +37,18 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
             string functionName,
             string blobPath,
             int timestep,
-            DocumentClient client)
+            DocumentClient client,
+            IObservation observation)
         {
             this.myBlob = myBlob;
             this.name = name;
             this.log = log;
             this.functionName = functionName;
-            this.version = "2.0.2";
+            this.version = "2.0.3";
             this.blobPath = blobPath;
             this.timestep = timestep;
             this.client = client;
+            this.observation = observation;
         }
 
         public async Task PipeItAsync()
@@ -88,10 +92,10 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                     contents,
                     -8);
 
-                    TOA5 metTable = extractor.GetTOA5<T>();
+                    TOA5 toa5 = extractor.GetTOA5(observation);
 
-                    DocumentDbMeasurementV2Transformer transformer =
-                        new DocumentDbMeasurementV2Transformer(
+                    CosmosDBSqlApiV2Transformer transformer =
+                        new CosmosDBSqlApiV2Transformer(
                             new MapFromToa5DataTableToCafStandards(),
                             "http://files.cafltar.org/data/schema/documentDb/v2/measurement.json",
                             etlEvent.Id,
@@ -100,7 +104,7 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
                             timestep);
 
                     List<MeasurementV2> measurements =
-                        transformer.ToMeasurements(metTable);
+                        transformer.ToMeasurements(toa5);
                     log.LogInformation("Attempting load");
 
                     int docsLoaded = 0;

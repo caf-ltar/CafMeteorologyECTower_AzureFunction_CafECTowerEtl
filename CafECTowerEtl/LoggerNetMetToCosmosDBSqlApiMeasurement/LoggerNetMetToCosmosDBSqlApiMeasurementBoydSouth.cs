@@ -28,15 +28,16 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl
         {
             log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 
-            LoggerNetMetToCosmosDBSqlApiMeasurement<Meteorology> pipe =
-                new LoggerNetMetToCosmosDBSqlApiMeasurement<Meteorology>(
+            LoggerNetMetToCosmosDBSqlApiMeasurement pipe =
+                new LoggerNetMetToCosmosDBSqlApiMeasurement(
                     myBlob,
                     name,
                     log,
                     "LoggerNetMetToCosmosDBSqlApiMeasurementBoydSouth",
                     $"ectower-boydsouth/raw/Met/{name}",
                     900,
-                    documentClient);
+                    documentClient,
+                    new Meteorology());
 
             await pipe.PipeItAsync();
         }
