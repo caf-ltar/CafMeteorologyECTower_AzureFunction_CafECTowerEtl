@@ -47,9 +47,9 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl.CosmosDBSqlApiMesurem
             //log.Info("data: " + data.ToString());
 
             if (data == null |
-                data.measurements[0].physicalQuantities[0] == null |
-                data.recentFilePath == null |
-                data.recentFileContent == null)
+                data?.measurements[0]?.physicalQuantities[0] == null |
+                data?.recentFilePath == null |
+                data?.recentFileContent == null)
             {
                 log.LogError("No data");
 
@@ -58,8 +58,10 @@ namespace Caf.Projects.CafMeteorologyEcTower.CafECTowerEtl.CosmosDBSqlApiMesurem
 
             // Convert Measurements to CORe.Observation
             //MeasurementJsonExtractor extractor = new MeasurementJsonExtractor();
+
             List<MeasurementV2> measurements = 
-                JsonConvert.DeserializeObject<MeasurementV2>(data.measurements);                                                                                                
+                JsonConvert.DeserializeObject<List<MeasurementV2>>(
+                    data.measurements.ToString());
 
             LtarDataPortalCOReTransformer transformer = new LtarDataPortalCOReTransformer();
             COReCsvStringWriter loader = new COReCsvStringWriter();

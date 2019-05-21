@@ -1,0 +1,1206 @@
+﻿{
+  "measurements": [
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 7.351659,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T15:17:19.9345158Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 2.911704,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T15:17:19.934635Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 57.74994,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T15:17:19.9347187Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T15:17:19.9347573Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.80838,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T15:17:19.9347974Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 236.2841,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T15:17:19.9348368Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.12833,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T15:17:19.934878Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T15:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.677626,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T15:17:19.9349171Z",
+          "sourceId": "73114137-6075-4a12-8d45-4510ddfdf766"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 7.461719,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T15:32:21.8290471Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 3.329674,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T15:32:21.8292241Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 57.24669,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T15:32:21.8293082Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T15:32:21.8293463Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.81333,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T15:32:21.829387Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 251.2974,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T15:32:21.8294265Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.19203,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T15:32:21.8294643Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T15:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.761765,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T15:32:21.8295037Z",
+          "sourceId": "4f271ae9-73be-4ae6-b9fd-cc28d65e99d0"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 7.601943,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T15:47:25.2650375Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 2.864203,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T15:47:25.2653164Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 56.92637,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T15:47:25.2654187Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T15:47:25.265458Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.81714,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T15:47:25.2655005Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 238.121,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T15:47:25.2655415Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.2878,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T15:47:25.2655797Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T15:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.872127,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T15:47:25.2656208Z",
+          "sourceId": "3653ce6c-e56b-41a8-8e58-5590a99b25de"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 7.808912,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:01:08.777265Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 2.752252,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T16:01:08.7774398Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 56.73335,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T16:01:08.7775234Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T16:01:08.7775616Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.82967,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T16:01:08.7776028Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 278.1586,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T16:01:08.7776424Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.36629,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T16:01:08.7776802Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T16:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.994888,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:01:08.7777198Z",
+          "sourceId": "1e057a91-c014-417a-ab1b-a6a0f6283d79"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 7.935916,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:16:38.4864678Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 2.79332,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T16:16:38.5044751Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 55.95565,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T16:16:38.504766Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T16:16:38.5048932Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.82642,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T16:16:38.5050201Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 322.3091,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T16:16:38.5051452Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.41769,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T16:16:38.5052659Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T16:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 10.14574,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:16:38.50539Z",
+          "sourceId": "e9bdaa18-5d17-4582-8ee0-e007d803f048"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 8.281834,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:31:42.8452185Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 2.711157,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T16:31:42.8454028Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 55.88272,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T16:31:42.845486Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T16:31:42.8455269Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.82216,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T16:31:42.8455698Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 457.7941,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T16:31:42.8456105Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.6107,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T16:31:42.8456509Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T16:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 10.34497,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:31:42.845689Z",
+          "sourceId": "be7a5cf5-1d4a-4483-a508-fa6a41e60e04"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 8.783058,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:46:51.3421764Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 2.515549,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T16:46:51.3425697Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 54.46329,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T16:46:51.3427007Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T16:46:51.3427767Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.826,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T16:46:51.3428302Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 649.4291,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T16:46:51.3428989Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.98032,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T16:46:51.3429751Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T16:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 10.64954,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T16:46:51.3430237Z",
+          "sourceId": "1a859b03-0efb-438a-827d-0dbdb306ac13"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.045922,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:02:24.9555163Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 3.009243,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T17:02:24.9557228Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 55.0322,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T17:02:24.95581Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T17:02:24.955851Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.80895,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T17:02:24.9558904Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 723.6191,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T17:02:24.9559307Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 13.11328,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T17:02:24.9559708Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T17:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 11.11206,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:02:24.9560095Z",
+          "sourceId": "31013e80-8c35-411e-84db-fdd2da29e708"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 8.910916,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:18:09.2421406Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 3.002916,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T17:18:09.2546886Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 56.79886,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T17:18:09.2550202Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T17:18:09.2551667Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.82033,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T17:18:09.2553056Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 511.8195,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T17:18:09.2554398Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.94831,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T17:18:09.2555745Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T17:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 11.60458,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:18:09.2613716Z",
+          "sourceId": "330bd80b-be04-459a-8ccf-d941c615bc74"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.041951,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:31:50.2382893Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 3.45559,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T17:31:50.2385092Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 56.7099,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T17:31:50.2386032Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T17:31:50.2386493Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.83681,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T17:31:50.2386919Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 693.0228,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T17:31:50.2387367Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 13.31291,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T17:31:50.2387808Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T17:30:00Z",
+      "physicalQuantities": [
+        {
+          "value": 11.93523,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:31:50.2388224Z",
+          "sourceId": "635e04a1-64ed-47fe-873f-a74b4b473b09"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 8.947372,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:46:52.2599605Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 3.575118,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T17:46:52.2601723Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 57.99194,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T17:46:52.2602717Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T17:46:52.2603145Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.85197,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T17:46:52.2603588Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 568.4481,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T17:46:52.2604031Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 13.24258,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T17:46:52.2604453Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T17:45:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.2033,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T17:46:52.2604893Z",
+          "sourceId": "bc6e8dea-93fd-4388-947b-066ebbdafe2e"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.317698,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T18:02:01.3438296Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 4.225224,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T18:02:01.3492377Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 59.30359,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T18:02:01.3493229Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T18:02:01.3493614Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "PressureAirTsAvg",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 91.86297,
+          "unit": "kPa",
+          "submissionDateTime": "2019-05-21T18:02:01.3494011Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "ParDensityTsAvg",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 1299.906,
+          "unit": "umol/(s m^2)",
+          "submissionDateTime": "2019-05-21T18:02:01.3494401Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "BatteryVoltageTsAvg",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 14.25427,
+          "unit": "V",
+          "submissionDateTime": "2019-05-21T18:02:01.3494768Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "TemperaturePanelTsAvg",
+      "dateTime": "2019-05-21T18:00:00Z",
+      "physicalQuantities": [
+        {
+          "value": 12.41494,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T18:02:01.3495153Z",
+          "sourceId": "8d94c129-e32b-4158-9acd-87b586aeba52"
+        }
+      ]
+    },
+    {
+      "name": "TemperatureAirTsAvg",
+      "dateTime": "2019-05-21T18:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 9.21417,
+          "unit": "C",
+          "submissionDateTime": "2019-05-21T18:17:21.9708222Z",
+          "sourceId": "e311e488-c72f-4c8e-b1f9-dae79bf6ae3f"
+        }
+      ]
+    },
+    {
+      "name": "WindSpeedTsResultant",
+      "dateTime": "2019-05-21T18:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 4.476999,
+          "unit": "m/s",
+          "submissionDateTime": "2019-05-21T18:17:21.9710207Z",
+          "sourceId": "e311e488-c72f-4c8e-b1f9-dae79bf6ae3f"
+        }
+      ]
+    },
+    {
+      "name": "RelativeHumidityTsAvg",
+      "dateTime": "2019-05-21T18:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 60.6122,
+          "unit": "%",
+          "submissionDateTime": "2019-05-21T18:17:21.9711027Z",
+          "sourceId": "e311e488-c72f-4c8e-b1f9-dae79bf6ae3f"
+        }
+      ]
+    },
+    {
+      "name": "PrecipitationTsAccum",
+      "dateTime": "2019-05-21T18:15:00Z",
+      "physicalQuantities": [
+        {
+          "value": 0,
+          "unit": "mm",
+          "submissionDateTime": "2019-05-21T18:17:21.9711403Z",
+          "sourceId": "e311e488-c72f-4c8e-b1f9-dae79bf6ae3f"
+        }
+      ]
+    }
+  ],
+  "recentFileContent": "LTARSiteAcronym,StationID,DateTime,RecordType,AirTemperature,WindSpeed,WindDirection,RelativeHumidity,Precipitation,AirPressure,PAR,ShortWaveIn,LongWaveIn,BatteryVoltage,LoggerTemperature\r\nCAF,000,2019-05-21T07:00:00-08:00,L,9.00,1.92,163,88,0.00,,,,,,",
+  "recentFilePath": "/ectower-cookeast-core-ftp/cafMET000L_01_20190500_00.csv"
+}
